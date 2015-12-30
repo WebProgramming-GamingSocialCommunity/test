@@ -2,18 +2,20 @@ const React = require('react') ;
 const Button = require('react-bootstrap').Button;
 const Input = require('react-bootstrap').Input;
 const ButtonGroup = require('react-bootstrap').ButtonGroup;
+const ButtonInput = require('react-bootstrap').ButtonInput;
 const Nav = require('react-bootstrap').Nav;
 const Navbar = require('react-bootstrap').Navbar;
 const NavItem = require('react-bootstrap').NavItem;
 const NavDropdown = require('react-bootstrap').NavDropdown;
 const MenuItem = require('react-bootstrap').MenuItem;
-//const Tabs = require('react-bootstrap').Tabs;
-//const Tab = require('react-bootstrap').Tab;
+const Tabs = require('react-bootstrap').Tabs;
+const Tab = require('react-bootstrap').Tab;
 const ListGroup = require('react-bootstrap').ListGroup;
 const ListGroupItem = require('react-bootstrap').ListGroupItem;
 const Grid = require('react-bootstrap').Grid;
 const Row = require('react-bootstrap').Row;
 const Col = require('react-bootstrap').Col;
+const form = require('react-bootstrap').form;
 
 class GameCommunity extends React.Component{
   constructor(props){
@@ -56,19 +58,17 @@ class GameCommunity extends React.Component{
             </Col>
           </Navbar>
         </Row>
-        <Col lg={2} className = 'Features'>
-          <Nav>
-            <Nav bsStyle='tabs' stacked>
-              <NavItem eventKey={1}>News Feed</NavItem>
-              <NavItem eventKey={2}>Messages</NavItem>
-              <NavItem eventKey={3}>Groups</NavItem>
-            </Nav>
-          </Nav>
-        </Col>
-        <Col lg={8} className = 'FeatureContents'>
-          <div>
-            testing
-          </div>
+        <Col lg={10} className = 'Features'>
+          <Tabs position='left' tabWidth={2}>
+            <Tab eventKey={1} title="News Feed">
+              <form>
+                <Input type='textarea' label='Update Status' placeholder='What do you want to post ?'/>
+                <ButtonInput type='submit' value='post'/>
+              </form>
+            </Tab>
+            <Tab eventKey={2} title="Messages"> Alice: Hello! </Tab>
+            <Tab eventKey={3} title="Groups"> LOL fights! </Tab>
+          </Tabs>
         </Col>
         <Col lg={2} className = 'UndefineFeatures'>
           <ListGroup>
