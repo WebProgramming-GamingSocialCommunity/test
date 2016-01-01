@@ -9,15 +9,13 @@ import Post from '../../src/components/Post';
 
 function setup() {
   const props = {
-    postContent: "I posted yesterday" 
+    post: {
+      postContent: "I posted yesterday"
+    }
   };
 
   const renderer = createRenderer();
-
-  renderer.render(
-    <Post {...props} />
-  );
-
+  renderer.render(<Post {...props} />);
   let output = renderer.getRenderOutput();
 
   return {

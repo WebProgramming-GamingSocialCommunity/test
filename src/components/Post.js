@@ -3,15 +3,17 @@ import Well from 'react-bootstrap';
 
 class Post extends Component {
   render() {
-    const { postContent } = this.props;
+    const { post } = this.props;
     return (
-      <Well>{postContent}</Well>
+      <Well>{post.postContent}</Well>
     );
   }
 }
 
 Post.propTypes = {
+  post: PropTypes.shape({
   postContent: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default Post;
