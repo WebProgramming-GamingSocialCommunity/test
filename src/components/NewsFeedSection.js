@@ -4,7 +4,7 @@ import PostInput from './PostInput';
 
 class NewsFeedSection extends Component {
   handleSave(inputPost){
-    if(inputPost !== 0){
+    if(inputPost.length !== 0){
       this.props.addPost(inputPost);
     }
   }
