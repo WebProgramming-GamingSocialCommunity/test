@@ -1,23 +1,18 @@
-const React = require('react') ;
-const {
+import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import {
     Button, Input, ButtonGroup, ButtonInput, 
     Nav, Navbar, NavItem, NavDropdown,
     MenuItem, Tabs, Tab, ListGroup, ListGroupItem, 
     Grid, Row, Col, form
-} = require('react-bootstrap');
-
-const Post = require('./Post');
+} from 'react-bootstrap';
+import NewsFeedSection from '../components/NewsFeedSection';
+import * as PostActions from '../actions/postActs'
 
 class GameCommunity extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      usr: "lin",
-    };
-  }
-
   render(){
-    const {usr, post} = this.state;
+    const { posts, actions } = this.props;
     return(
       <Grid fluid>
         <Row className = 'Toolbar'>
@@ -43,7 +38,7 @@ class GameCommunity extends React.Component{
                   </Navbar.Form>
                 </Nav>
                 <Nav pullRight>
-                  <NavItem eventKey={1} href='#'>{usr}</NavItem>
+                  <NavItem eventKey={1} href='#'>Lin</NavItem>
                   <NavItem eventKey={2} href='#'>Home</NavItem>
                 </Nav>
               </Navbar.Collapse>
@@ -53,7 +48,7 @@ class GameCommunity extends React.Component{
         <Col lg={10} className = 'Features'>
           <Tabs position='left' tabWidth={2}>
             <Tab eventKey={1} title="News Feed">
-              <Post/>
+              <NewsFeedSection posts={posts} addPost={actions.addPost}/>
             </Tab>
           </Tabs>
         </Col>
@@ -62,4 +57,27 @@ class GameCommunity extends React.Component{
   }
 }
 
-module.exports = GameCommunity ;
+GameCommunity.propTypes = {
+  posts: PropTypes.arrayOf(PropTypes.shape({
+    postContent: PropTypes.string.isRequired,
+  })).isRequired,
+  actions: PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    posts: state.posts
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(PostActions, dispatch)
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(GameCommunity);
+
