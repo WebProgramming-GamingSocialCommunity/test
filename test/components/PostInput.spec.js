@@ -10,7 +10,7 @@ import { Input, Button } from 'react-bootstrap';
 function setup(propOverrides) {
   const props = Object.assign({
     onSave: spy(),
-    inputPost: 'I am writing frontend',
+    inputPost: 'Testing PostInput',
     placeholder: 'What do you want to post?'
   }, propOverrides);
 
@@ -44,23 +44,23 @@ describe('components', () => {
       const input = output.props.children[0];
       expect(input.props.placeholder).to.equal('What do you want to post?');
       expect(input.props.label).to.equal('Update Status');
-      expect(input.props.value).to.equal('I am writing frontend');
+      expect(input.props.value).to.equal('Testing PostInput');
       expect(input.props.className).to.equal('new-post');
     });
 
     it('should update value on change', () => {
       const { output, renderer } = setup();
       const input = output.props.children[0];
-      input.props.onChange({ target: { value: 'Onchange updated' } });
+      input.props.onChange({ target: { value: 'Testing onchange' } });
       const updated = renderer.getRenderOutput();
-      expect(updated.props.children[0].props.value).to.equal('Onchange updated');
+      expect(updated.props.children[0].props.value).to.equal('Testing onchange');
     });
 
     it('should call onSave and reset state after button clicked', () => {
       const { output, props, renderer } = setup();
       const button = output.props.children[1];
-      button.props.onClick({ target: { value: 'After onClick' } });
-      expect(props.onSave.calledWith('After onClick')).to.be.ok;
+      button.props.onClick({ target: { value: 'Testing onClick' } });
+      expect(props.onSave.calledWith('Testing onClick')).to.be.ok;
 
       const updated =renderer.getRenderOutput();
       expect(updated.props.children[0].props.value).to.equal("");

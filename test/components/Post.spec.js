@@ -10,7 +10,7 @@ import Post from '../../src/components/Post';
 function setup() {
   const props = {
     post: {
-      postContent: "I posted yesterday"
+      postContent: "Testing Post"
     }
   };
 
@@ -30,7 +30,7 @@ describe('components', () => {
     it('initial render', () => {
       const { output } = setup();
       expect(output.type).to.equal(Well);
-      expect(output.props.children).to.equal("I posted yesterday" );
+      expect(output.props.children).to.equal("Testing Post" );
     });
   });
 });

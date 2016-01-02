@@ -12,9 +12,9 @@ function setup() {
   const props = {
     posts: [
       {
-        postContent: "Now in test directory"
+        postContent: "Testing NewsFeedSection"
       },{
-        postContent: "Writing NewsFeedSection.spec"
+        postContent: "Testing NewsFeedSection Testing NewsFeedSection"
       }
     ],
     addPost: spy()

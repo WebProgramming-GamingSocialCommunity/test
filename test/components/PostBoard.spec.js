@@ -11,9 +11,9 @@ function setup(propOverrides) {
   const props = Object.assign({
     posts: [
       {
-        postContent: "Today is Saturday."
+        postContent: "Testing PostBoard"
       },{
-        postContent: "It is Sunny"
+        postContent: "Testing PostBoard Testing PostBoard"
       }
     ]
   }, propOverrides);

@@ -4,9 +4,9 @@ import { addPost } from '../../src/actions/postActs';
 
 describe('post actions', () => {
   it('addPost should create ADD_POST action', () => {
-    expect(addPost('Use Redux')).to.deep.equal({
+    expect(addPost('Testing addPost')).to.deep.equal({
       type: ADD_POST,
-      inputPost: 'Use Redux'
+      inputPost: 'Testing addPost'
     });
   });
 });
