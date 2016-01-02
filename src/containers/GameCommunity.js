@@ -8,7 +8,7 @@ import {
     Grid, Row, Col, form
 } from 'react-bootstrap';
 import NewsFeedSection from '../components/NewsFeedSection';
-import * as PostActions from '../actions/postActs'
+import * as PostActions from '../actions/posts'
 
 class GameCommunity extends React.Component{
   render(){

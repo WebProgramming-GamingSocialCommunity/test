@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import postsReducer from '../../src/reducers/postsReducer';
+import postsReducer from '../../src/reducers/posts';
 import { ADD_POST } from '../../src/actionTypes';
 
 describe('post reducer', () => {

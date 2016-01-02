@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { ADD_POST } from '../../src/actionTypes';
-import { addPost } from '../../src/actions/postActs';
+import { addPost } from '../../src/actions/posts';
 
 describe('post actions', () => {
   it('addPost should create ADD_POST action', () => {
