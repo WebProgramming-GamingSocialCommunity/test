@@ -48,7 +48,7 @@ class GameCommunity extends React.Component{
         <Col lg={10} className = 'Features'>
           <Tabs position='left' tabWidth={2}>
             <Tab eventKey={1} title="News Feed">
-              <NewsFeedSection posts={posts} addPost={actions.addPost}/>
+              <NewsFeedSection posts={posts} addPost={actions.addPostToServer}/>
             </Tab>
           </Tabs>
         </Col>
