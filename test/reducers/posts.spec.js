@@ -17,7 +17,7 @@ describe('post reducer', () => {
     expect(
       postsReducer([], {
         type: ADD_POST,
-        inputPost: 'Testing posts reducer'
+        postContent: 'Testing posts reducer'
       })
     ).to.deep.equal([
       {
@@ -32,7 +32,7 @@ describe('post reducer', () => {
         }
       ], {
         type: ADD_POST,
-        inputPost: 'Testing posts reducer 2'
+        postContent: 'Testing posts reducer 2'
       })
     ).to.deep.equal([
       {
@@ -51,7 +51,7 @@ describe('post reducer', () => {
         }
       ], {
         type: ADD_POST,
-        inputPost: 'Testing posts reducer 3'
+        postContent: 'Testing posts reducer 3'
       })
     ).to.deep.equal([
       {

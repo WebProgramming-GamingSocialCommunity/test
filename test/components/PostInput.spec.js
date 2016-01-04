@@ -10,7 +10,7 @@ import { Input, Button } from 'react-bootstrap';
 function setup(propOverrides) {
   const props = Object.assign({
     onSave: spy(),
-    inputPost: 'Testing PostInput',
+    postContent: 'Testing PostInput',
     placeholder: 'What do you want to post?'
   }, propOverrides);
 

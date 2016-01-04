@@ -1,8 +1,8 @@
 import { ADD_POST } from '../actionTypes';
 
-export function addPost(inputPost){
+export function addPost(postContent){
   return{
     type: ADD_POST,
-    inputPost
+    postContent
   };
 }

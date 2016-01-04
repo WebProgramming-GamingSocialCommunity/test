@@ -6,21 +6,21 @@ class PostInput extends Component{
   constructor(props, context){
     super(props, context);
     this.state = {
-      inputPost: this.props.inputPost || ""
+      postContent: this.props.postContent || ""
     };
   }
   
   handleSubmit(event){
-    const inputPost = event.target.value.trim();
-    this.props.onSave(inputPost);
+    const postContent = event.target.value.trim();
+    this.props.onSave(postContent);
     this.setState({
-      inputPost: ""
+      postContent: ""
     });
   }
   
   handleChange(event){
     this.setState({
-      inputPost: event.target.value  
+      postContent: event.target.value  
     });
   }
 
@@ -31,7 +31,7 @@ class PostInput extends Component{
           type='textarea' 
           label='Update Status' 
           placeholder= {this.props.placeholder}
-          value= {this.state.inputPost}
+          value= {this.state.postContent}
           onChange={this.handleChange.bind(this)}
         />
         <Button onClick={this.handleSubmit.bind(this)}>post</Button>
@@ -42,7 +42,7 @@ class PostInput extends Component{
 
 PostInput.PropTypes = {
   onSave: PropTypes.func.isRequired,
-  inputPost: PropTypes.string,
+  postContent: PropTypes.string,
   placeholder: PropTypes.string
 };
 
