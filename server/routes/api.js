@@ -20,9 +20,8 @@ router.get('/posts', function(req, res, next) {
 });
 
 router.post('/posts', function(req, res, next) {
-  console.log('req.body', req.body);
   var postContent = req.body.postContent;
-  console.log('postContent', postContent);
+  console.log('postContent: ', postContent);
   fs.readFile(DB_PATH, 'utf8', function(err, data) {
     if (err) return next(err);
     var posts;

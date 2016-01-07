@@ -15,7 +15,7 @@ export function addPostToServer(postContent) {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringift({
+      body: JSON.stringify({
         postContent,
       })
     })

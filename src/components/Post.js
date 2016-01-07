@@ -4,7 +4,6 @@ import { Well } from 'react-bootstrap';
 class Post extends Component {
   render() {
     const { post } = this.props;
-    console.log('post: ', post);
     return (
       <Well>{post.postContent}</Well>
     );
