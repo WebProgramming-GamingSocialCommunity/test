@@ -6,7 +6,7 @@ describe('post actions', () => {
   it('addPost should create ADD_POST action', () => {
     expect(addPost('Testing addPost')).to.deep.equal({
       type: ADD_POST,
-      inputPost: 'Testing addPost'
+      postContent: 'Testing addPost'
     });
   });
 });

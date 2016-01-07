@@ -3,9 +3,9 @@ import PostBoard from './PostBoard';
 import PostInput from './PostInput';
 
 class NewsFeedSection extends Component {
-  handleSave(inputPost){
-    if(inputPost.length !== 0){
-      this.props.addPost(inputPost);
+  handleSave(postContent){
+    if(postContent.length !== 0){
+      this.props.addPost(postContent);
     }
   }
 
