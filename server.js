@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var proxy = require('proxy-middleware');
 var config = require('./webpack.config');
 
-const API_PORT = 8080
+const API_PORT = 8080;
 
 var app = express();
 var compiler = webpack(config);

@@ -12,9 +12,10 @@ fetch('api/posts')
   console.log(data);
   const store = configureStore({ posts: data });
 
-render(
-  <Provider store={store}>
-    <GameCommunity /> 
-  </Provider>,
-    document.getElementById('root')
-) ;
+  render(
+    <Provider store={store}>
+      <GameCommunity /> 
+    </Provider>,
+      document.getElementById('root')
+  );
+});
