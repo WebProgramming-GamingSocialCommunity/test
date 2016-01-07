@@ -59,12 +59,13 @@ class GameCommunity extends React.Component{
 
 GameCommunity.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.shape({
-    postContent: PropTypes.string.isRequired,
+    postContent: PropTypes.string.isRequired
   })).isRequired,
   actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
+  console.log('state:', state);
   return {
     posts: state.posts
   };

@@ -11,7 +11,7 @@ class PostInput extends Component{
   }
   
   handleSubmit(event){
-    const postContent = event.target.value.trim();
+    const postContent = this.refs.postInput.getValue();
     this.props.onSave(postContent);
     this.setState({
       postContent: ""
@@ -28,7 +28,8 @@ class PostInput extends Component{
     return(
       <div>
         <Input className = "new-post"
-          type='textarea' 
+          type='textarea'
+          ref='postInput'
           label='Update Status' 
           placeholder= {this.props.placeholder}
           value= {this.state.postContent}

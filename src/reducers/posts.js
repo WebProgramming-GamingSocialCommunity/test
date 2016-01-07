@@ -7,7 +7,7 @@ const initialState = [
 ];
 
 export default function postsReducer(state = initialState, action) {
-  if(action.type === 'ADD_POST') {
+  if(action.type === ADD_POST) {
     return [{
         postContent: action.postContent
       },
