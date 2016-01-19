@@ -4,7 +4,7 @@ import { spy } from 'sinon';
 import {
   createRenderer
 } from 'react-addons-test-utils';
-import Well from 'react-bootstrap';
+import {Well} from 'react-bootstrap';
 import Post from '../../src/components/Post';
 
 function setup() {
