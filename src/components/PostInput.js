@@ -11,7 +11,8 @@ class PostInput extends Component{
   }
   
   handleSubmit(event){
-    const postContent = this.refs.postInput.getValue();
+    console.log('postContent', this.state.postContent); 
+    const postContent = this.state.postContent;
     this.props.onSave(postContent);
     this.setState({
       postContent: ""

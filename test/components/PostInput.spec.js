@@ -59,8 +59,8 @@ describe('components', () => {
     it('should call onSave and reset state after button clicked', () => {
       const { output, props, renderer } = setup();
       const button = output.props.children[1];
-      button.props.onClick({ target: { value: 'Testing onClick' } });
-      expect(props.onSave.calledWith('Testing onClick')).to.be.ok;
+      button.props.onClick();
+      expect(props.onSave.calledWith('Testing PostInput')).to.be.ok;
 
       const updated =renderer.getRenderOutput();
       expect(updated.props.children[0].props.value).to.equal("");
