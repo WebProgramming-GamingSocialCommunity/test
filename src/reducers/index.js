@@ -1,7 +1,12 @@
 import { combineReducers } from 'redux';
+import { signstatus,  updateUser } from './user'
+import { postsReducer , postStatusReducer} from './posts'
 import app from './user'
 
 const rootReducer = combineReducers({
-  app
+  signstatus,
+  postsReducer,
+  updateUser,
+postStatusReducer
 });
 export default rootReducer;

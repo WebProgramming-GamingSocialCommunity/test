@@ -3,6 +3,7 @@ import { IndexLink, Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UserActions from '../actions/user'
+import * as PostActions from '../actions/posts'
     
 class App extends Component {
 
@@ -11,11 +12,13 @@ class App extends Component {
     }
 
     render() {
-	const { status, actions } = this.props;
-console.log(actions);
+console.log(this.props);
+	const { user, status, actionsU, post, actionsP, poststatus} = this.props;
         if(status===false) {
-            return React.cloneElement(this.props.children, {login: actions.receiveUsers});
+            return React.cloneElement(this.props.children, {login: actionsU.receiveUsers});
         } 
+	console.log(user);
+	if(poststatus===false) actionsP.getInitPost(user.id);
         return (
             <div>
                 <div className="ui inverted top fixed menu topbar">
@@ -28,47 +31,48 @@ console.log(actions);
                                 className="item"
                                 >Personal Index
                             </Link>
-                            <Link
-                                to="/match"
-                                activeClassName="active"
-                                className="item"
-                                >Match
-                            </Link>
-                            <Link
-                                to="/friends"
-                                activeClassName="active"
-                                className="item"
-                                >Friend List
-                            </Link>
-                            <Link
-                                to="/club"
-                                activeClassName="active"
-                                className="item"
-                                >Club
-                            </Link>
-			
                         </div>
                     </div>
                     <div className="header item"><span className="brandtext">Game Community</span></div>
+                    <div className="item">
+                      <Link 
+                                to="/personal" 
+                                activeClassName="active"
+                                className="item"
+                                >Personal Index
+                            </Link>
+                    </div>
                 </div>
                 <div className="ui text container">
-                    {this.props.children}
+                    {React.cloneElement(this.props.children, {addPost: actionsP.addPostToServer, posts: post, user_id: user.id})}
                 </div>
             </div>
         );
     }
 }
 
+App.propTypes = {
+  post: PropTypes.arrayOf(PropTypes.shape({
+    usr: PropTypes.string,
+    title: PropTypes.string,
+    postContent: PropTypes.string.isRequired
+  })).isRequired
+};
+
 function mapStateToProps(state) {
   return {
-      user: state.registeruser,
-      status: state.signstatus
+      user: state.updateUser,
+      status: state.signstatus,
+      post: state.postsReducer,
+	poststatus: state.postStatusReducer
   };
 }
 
+
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(UserActions, dispatch)
+    actionsU: bindActionCreators(UserActions, dispatch),
+    actionsP: bindActionCreators(PostActions, dispatch)
   };
 }
 

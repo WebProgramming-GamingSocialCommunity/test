@@ -1,19 +1,20 @@
 import React, { Component, PropTypes } from 'react';
-import { Well } from 'react-bootstrap';
+import { Well, Modal, Col } from 'react-bootstrap';
 
 class Post extends Component {
   render() {
     const { post } = this.props;
     return (
-      <Well>{post.postContent}</Well>
+      <Well>
+        <Modal.Header>
+          <Col lg={2}>{ post.usr }</Col>
+          <Modal.Title>{ post.title }</Modal.Title>
+        </Modal.Header>
+        { post.postContent }
+      </Well>
     );
   }
 }
 
-Post.propTypes = {
-  post: PropTypes.shape({
-  postContent: PropTypes.string.isRequired
-  }).isRequired
-};
 
 export default Post;

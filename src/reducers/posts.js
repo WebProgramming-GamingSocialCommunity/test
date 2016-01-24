@@ -1,19 +1,26 @@
-import { ADD_POST} from '../actionTypes';
+import { ADD_POST, POST_GET ,PI_COMPLETE} from '../actionTypes'
 
-const initialState = [
-  {
-    postContent: 'First post'
-  }
-];
 
-export default function postsReducer(state = initialState, action) {
-  if(action.type === ADD_POST) {
-    return [{
-        postContent: action.postContent
-      },
+export  function postsReducer(state = [], action) {
+  switch(action.type) {
+case ADD_POST:
+    return [
+action.postContent
+      ,
       ...state  
     ];
-  } else {
-    return state;
-  }
+  case POST_GET:
+return action.userpost;
+default:
+return state;
+
+}}
+
+export function postStatusReducer(state = false,action) {
+	switch(action.type) {
+	case PI_COMPLETE:
+return action.status;
+default:
+return state;
+};
 }

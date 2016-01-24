@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import { SIGN_IN, COMPLETE_SIGN } from '../actions/user'
+import { COMPLETE_SIGN ,UPDATE_USER/*,ID_UPDATE/*, COMPLETE_GET*/ } from '../actionTypes'
 
-function signstatus(state = false, action) {
+export function signstatus(state = false, action) {
     switch (action.type) {
         case COMPLETE_SIGN:
             return action.status;
@@ -10,19 +10,30 @@ function signstatus(state = false, action) {
     }
 }
 
-function registeruser(state = {}, action) {
-    switch (action.type) {
-        case SIGN_IN:
-            console.log(action.info);
-            return action.info;
-	default:
-return state;
-    }
+export function updateUser(state= {}, action) {
+	switch (action.type) {
+		case UPDATE_USER:
+			return action.data;
+default:
+return state;			
+	}
 }
 
-const app = combineReducers({
-    signstatus,
-    registeruser
-})
+/*export function updateId( state=-1 ,action) {
+	switch (action.type) {
+	case ID_UPDATE:
+return action.id;
+default:
+return state;
+}
+}*/
+/*
+export function getstatus(state=false, action) {
+	switch (action.type) {
+	case COMPLETE_GET:
+return action.status;
+default:
+return state;
+}
+}*/
 
-export default app;

@@ -3,8 +3,9 @@ import Post from './Post';
 
 class PostBoard extends Component {
   render() {
+console.log(this.props.posts);
     const { posts } = this.props;
-    return(
+    if(posts.length!==0) {return(
       <section className = 'post-board'>
         <ul className = 'post-list'>
           {posts.map(post =>
@@ -12,14 +13,11 @@ class PostBoard extends Component {
           )}
         </ul>
       </section>
-    );
+    );}
+    else {
+	return(<section className='post-board'></section>);
+}
   }
 }
-
-PostBoard.PropTypes = {
-  posts: PropTypes.arrayOf(React.PropTypes.shape({
-    postContent: PropTypes.string.isRequired
-  }))
-};
 
 export default PostBoard;
