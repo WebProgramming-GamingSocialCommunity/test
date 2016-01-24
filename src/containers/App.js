@@ -7,41 +7,29 @@ import * as PostActions from '../actions/posts'
     
 class App extends Component {
 
-    componentDidMount() {
-        $(".ui.dropdown").dropdown("refresh");
-    }
-
     render() {
 console.log(this.props);
 	const { user, status, actionsU, post, actionsP, poststatus} = this.props;
         if(status===false) {
-            return React.cloneElement(this.props.children, {login: actionsU.receiveUsers});
+            return (<div className="ui text container">
+{React.cloneElement(this.props.children, {login: actionsU.receiveUsers})}
+</div>
+);
         } 
-	console.log(user);
+	console.log(user.id);
 	if(poststatus===false) actionsP.getInitPost(user.id);
         return (
             <div>
                 <div className="ui inverted top fixed menu topbar">
-                    <div className="ui dropdown icon item">
-                        <i className="sidebar icon"></i>
-                        <div className="vertical menu below">
-                            <Link 
-                                to="/personal" 
-                                activeClassName="active"
-                                className="item"
-                                >Personal Index
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="header item"><span className="brandtext">Game Community</span></div>
-                    <div className="item">
+                    <div className="header item"><span className="brandtext">Community</span></div>
                       <Link 
                                 to="/personal" 
                                 activeClassName="active"
                                 className="item"
                                 >Personal Index
                             </Link>
-                    </div>
+
+			<div className="item">Match</div>
                 </div>
                 <div className="ui text container">
                     {React.cloneElement(this.props.children, {addPost: actionsP.addPostToServer, posts: post, user_id: user.id})}

@@ -6,38 +6,59 @@ class PostInput extends Component{
   constructor(props, context){
     super(props, context);
     this.state = {
-      postContent: this.props.postContent || ""
+      postContent: "",
+	title: ""
     };
   }
   
   handleSubmit(event){
     console.log('postContent', this.state.postContent); 
-    const postContent = this.state.postContent;
-    this.props.onSave(postContent);
+    let postemp = {
+	content:this.state.postContent,
+	title:this.state.title
+	}
+console.log(this.props.user_id);
+    this.props.onSave(postemp,this.props.user_id);
     this.setState({
-      postContent: ""
+      postContent: "",
+	title:""
     });
   }
   
-  handleChange(event){
+  handlecChange(event){
     this.setState({
       postContent: event.target.value  
     });
   }
 
+	handletChange(event) {
+	this.setState({
+	title:event.target.value
+});
+}
+
   render(){
     return(
-      <div>
-        <Input className = "new-post"
+<div className="ui text container">
+      <div className="ui form">
+        <Input 
           type='textarea'
-          ref='postInput'
-          label='Update Status' 
           placeholder= {this.props.placeholder}
           value= {this.state.postContent}
-          onChange={this.handleChange.bind(this)}
+          onChange={this.handlecChange.bind(this)}
         />
-        <Button onClick={this.handleSubmit.bind(this)}>post</Button>
       </div>
+<span className="ui input">
+<Input 
+	type='text'
+	placeholder={this.props.pht}
+	value={this.state.title}
+	onChange={this.handletChange.bind(this)}
+/>
+</span>
+<span className="sub">
+<Button className="ui right floated button" onClick={this.handleSubmit.bind(this)}>post</Button></span>
+</div>
     );
   }
 }

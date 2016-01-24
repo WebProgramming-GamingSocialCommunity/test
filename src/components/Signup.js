@@ -61,12 +61,49 @@ class Signup extends React.Component {
     render() {
         return (
             <div>
-                <input type="text" name="username" onChange={ this.handleUsername.bind(this) } />
-                <input type="text" name="email" onChange={ this.handleEmail.bind(this) } />
-                <input type="text" name="password" onChange={ this.handlePassword.bind(this) } />
-                <input type="text" name="password_c" onChange={ this.handlePasswordC.bind(this) } />
-                <div className="ui fluid large teal submit button" onClick={ this.submit.bind(this) }>Sign up</div>
+    <div className="ui one column stackable center aligned vertically padded grid container">
+        <div className="column twelve wide">
+            <h2 className="ui center aligned icon header">
+                <i className="circular users icon"></i>
+                <div className="content">
+                    Sign up
+                    <div className="sub header">Come join us!</div>
+                </div>
+            </h2>
+            <div className="ui large form">
+                <div className="ui attached segment">
+                    <div className="ui stacked segment">
+                        <div className="field">
+                            <div className="ui left icon input">
+                                <i className="user icon"></i>
+                                <input type="text" name="username" placeholder="Username" onChange={ this.handleUsername.bind(this) } />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <div className="ui left icon input">
+                                <i className="mail icon"></i>
+                                <input type="text" name="email" placeholder="Email" onChange={ this.handleEmail.bind(this) } />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <div className="ui left icon input">
+                                <i className="lock icon"></i>
+                                <input type="text" name="password" placeholder="Password" onChange={ this.handlePassword.bind(this) } />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <div className="ui left icon input">
+                                <i className="lock icon"></i>
+                                <input type="text" name="password_c" placeholder="Password Confirmation" onChange={ this.handlePasswordC.bind(this) } />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="ui fluid large teal bottom attached submit button" onClick={ this.submit.bind(this) }>Sign up</div>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
         );
     }
 

@@ -26,10 +26,11 @@ export function addPostToServer(postContent,id) {
 let temp ={
 	post:{
 	title: postContent.title,
-	content: postContent.title,
+	content: postContent.content,
 	user_id:id
 }
 }  
+console.log(JSON.stringify(temp));
 return(dispatch) => {
     fetch('http://localhost:8080/v1/posts', {
       method: 'post',

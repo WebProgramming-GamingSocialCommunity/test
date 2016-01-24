@@ -3,9 +3,10 @@ import PostBoard from './PostBoard';
 import PostInput from './PostInput';
 
 class NewsFeedSection extends Component {
-  handleSave(postContent){
-    if(postContent.length !== 0){
-      this.props.addPost(postContent);
+  handleSave(postContent,id){
+console.log(id);
+    if(postContent.content.length !== 0){
+      this.props.addPost(postContent,id);
     }
   }
 
@@ -15,6 +16,8 @@ class NewsFeedSection extends Component {
         <PostInput
           onSave={this.handleSave.bind(this)}
           placeholder="What do you want to post?"
+	pht="Give it a title"
+	user_id={this.props.user_id}
         />
         <PostBoard posts={this.props.posts}/>
       </section>

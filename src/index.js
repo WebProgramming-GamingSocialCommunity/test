@@ -7,6 +7,7 @@ require('babel-core/polyfill');
 const { createStore } = require('redux');
 const { Provider } = require('react-redux');
 require('../semantic/dist/semantic.min.css');
+require('./components/style.css')
 import configureStore from './store/configureStore';
 
 const history = createBrowserHistory();
