@@ -1,4 +1,4 @@
-import { ADD_POST } from '../actionTypes';
+export const ADD_POST = 'ADD_POST';
 
 export function addPost(postContent){
   return{
