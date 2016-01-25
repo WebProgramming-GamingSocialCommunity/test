@@ -47,7 +47,7 @@ console.log(JSON.stringify(info));
             console.log(data);
             dispatch(getUser(data));
             dispatch(login());
-		history.replaceState(null,'/personal');
+		history.replaceState(null,'/posts');
         });
     };
 }

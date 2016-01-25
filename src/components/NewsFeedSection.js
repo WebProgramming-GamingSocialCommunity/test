@@ -12,7 +12,7 @@ console.log(id);
 
   render(){
     return(
-      <section className = "news-feed-section">
+      <div>
         <PostInput
           onSave={this.handleSave.bind(this)}
           placeholder="What do you want to post?"
@@ -21,7 +21,7 @@ console.log(id);
         />
 <div className="ui divider"></div>
         <PostBoard posts={this.props.posts}/>
-      </section>
+     </div>
     );
   }
 }

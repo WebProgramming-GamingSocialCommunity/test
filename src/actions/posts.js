@@ -1,10 +1,18 @@
-import { ADD_POST, POST_GET ,PI_COMPLETE} from '../actionTypes'
+import { ADD_POST, POST_GET ,PI_COMPLETE, TPOST_GET} from '../actionTypes'
 
 export function addPost(postContent){
   return{
     type: ADD_POST,
     postContent,
   };
+}
+
+
+export function getTPost(totalpost) {
+	return{
+	type: TPOST_GET,
+totalpost
+};
 }
 
 
@@ -58,6 +66,16 @@ export function getInitPost(id) {
 .then(data => {
 	dispatch(getPost(data.posts));
 	dispatch(postin());
+});
+};
+}
+
+export function getTotalPost(){
+	return(dispatch) => {
+	fetch('http://localhost:8080/v1/posts')
+.then(res => res.json())
+.then(data=> {
+	dispatch(getTPost(data));
 });
 };
 }

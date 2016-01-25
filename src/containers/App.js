@@ -6,10 +6,14 @@ import * as UserActions from '../actions/user'
 import * as PostActions from '../actions/posts'
     
 class App extends Component {
+	handleRefresh() {
+const { actionsP }=this.props;
+		actionsP.getTotalPost();
+};
 
     render() {
+const { user, status, actionsU, userpost, actionsP, userpoststatus, post} = this.props;
 console.log(this.props);
-	const { user, status, actionsU, post, actionsP, poststatus} = this.props;
         if(status===false) {
             return (<div className="ui text container">
 {React.cloneElement(this.props.children, {login: actionsU.receiveUsers})}
@@ -17,11 +21,16 @@ console.log(this.props);
 );
         } 
 	console.log(user.id);
-	if(poststatus===false) actionsP.getInitPost(user.id);
         return (
             <div>
                 <div className="ui inverted top fixed menu topbar">
-                    <div className="header item"><span className="brandtext">Community</span></div>
+                    <Link 
+                                to="/posts" 
+                                activeClassName="active"
+				onClick={this.handleRefresh.bind(this)}
+                                className="header item"
+                                ><span className="brandtext">Community</span>
+                            </Link>
                       <Link 
                                 to="/personal" 
                                 activeClassName="active"
@@ -32,27 +41,20 @@ console.log(this.props);
 			<div className="item">Match</div>
                 </div>
                 <div className="ui text container">
-                    {React.cloneElement(this.props.children, {addPost: actionsP.addPostToServer, posts: post, user_id: user.id})}
+                    {React.cloneElement(this.props.children, {actions :actionsP, userposts: userpost, user_id: user.id, userpoststatus: userpoststatus, posts:post})}
                 </div>
             </div>
         );
     }
 }
 
-App.propTypes = {
-  post: PropTypes.arrayOf(PropTypes.shape({
-    usr: PropTypes.string,
-    title: PropTypes.string,
-    postContent: PropTypes.string.isRequired
-  })).isRequired
-};
-
 function mapStateToProps(state) {
   return {
       user: state.updateUser,
       status: state.signstatus,
-      post: state.postsReducer,
-	poststatus: state.postStatusReducer
+      userpost: state.postsReducer,
+      userpoststatus: state.postStatusReducer,
+      post: state.postsTReducer
   };
 }
 

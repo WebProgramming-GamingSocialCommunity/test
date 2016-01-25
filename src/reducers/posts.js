@@ -1,4 +1,4 @@
-import { ADD_POST, POST_GET ,PI_COMPLETE} from '../actionTypes'
+import { ADD_POST, POST_GET ,PI_COMPLETE,TPOST_GET} from '../actionTypes'
 
 
 export  function postsReducer(state = [], action) {
@@ -23,4 +23,13 @@ return action.status;
 default:
 return state;
 };
+}
+
+export function postsTReducer(state=[],action) {
+	switch(action.type) {
+	case TPOST_GET:
+return action.totalpost;
+default:
+return state;
+}
 }
