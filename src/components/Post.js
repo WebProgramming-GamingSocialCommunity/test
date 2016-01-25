@@ -5,13 +5,13 @@ class Post extends Component {
   render() {
     const { post } = this.props;
     return (
-      <Well>
-        <Modal.Header>
-          <Col lg={2}>{ post.usr }</Col>
-          <Modal.Title>{ post.title }</Modal.Title>
-        </Modal.Header>
-        { post.postContent }
-      </Well>
+<div>
+<div className="ui segment">
+          <h2 className="ui header">{ post.title }</h2>
+        <p>{ post.content }</p>
+      </div>
+<div className="ui divider"></div>
+</div>
     );
   }
 }

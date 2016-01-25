@@ -42,7 +42,10 @@ return(dispatch) => {
     })
     .then(res => res.json() )
     .then(data => {
-      dispatch(addPost(data.post));
+console.log("there");
+console.log(data);
+let temp={content:data.content,title:data.title};
+      dispatch(addPost(temp));
     });
   };
 }

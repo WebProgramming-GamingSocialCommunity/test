@@ -1,5 +1,7 @@
 const React = require("react");
 const fetch = require('isomorphic-fetch')
+import history from '../history';
+
 class Signup extends React.Component {
     constructor(props) {
         super(props);
@@ -11,6 +13,10 @@ class Signup extends React.Component {
             error_message:[]
         };   
     }
+
+	/*redirectToLogin() {
+	this.transitionTo("/");
+}*/
 
     handleUsername(event) {
         this.setState({username:event.target.value});
@@ -28,10 +34,10 @@ class Signup extends React.Component {
         this.setState({password_confirmation:event.target.value});
     }
 
-    getSession(res) {
+    /*getSession(res) {
         fetch()
         
-    }
+    }*/
 
     submit() { 
         var temp = { 
@@ -53,9 +59,8 @@ class Signup extends React.Component {
             return response.json();
         }).then(function(result) {
             console.log(result);
-        }).catch(function(err) {
-	    console.log(err);
-	});
+		history.replaceState(null,'/');
+        });
     }
 
     render() {
@@ -108,4 +113,6 @@ class Signup extends React.Component {
     }
 
 }
+
+
 module.exports = Signup;

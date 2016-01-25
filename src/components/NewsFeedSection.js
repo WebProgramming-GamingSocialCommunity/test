@@ -19,6 +19,7 @@ console.log(id);
 	pht="Give it a title"
 	user_id={this.props.user_id}
         />
+<div className="ui divider"></div>
         <PostBoard posts={this.props.posts}/>
       </section>
     );

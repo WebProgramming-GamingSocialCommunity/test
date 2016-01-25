@@ -1,5 +1,6 @@
 import { COMPLETE_SIGN, UPDATE_USER/*, ID_UPDATE, COMPLETE_GET */} from '../actionTypes'
 import fetch from 'isomorphic-fetch'
+import history from '../history'
 
 export function login() {
     return {
@@ -46,6 +47,7 @@ console.log(JSON.stringify(info));
             console.log(data);
             dispatch(getUser(data));
             dispatch(login());
+		history.replaceState(null,'/personal');
         });
     };
 }
