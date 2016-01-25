@@ -93,13 +93,13 @@ class Signup extends React.Component {
                         <div className="field">
                             <div className="ui left icon input">
                                 <i className="lock icon"></i>
-                                <input type="text" name="password" placeholder="Password" onChange={ this.handlePassword.bind(this) } />
+                                <input type="password" name="password" placeholder="Password" onChange={ this.handlePassword.bind(this) } />
                             </div>
                         </div>
                         <div className="field">
                             <div className="ui left icon input">
                                 <i className="lock icon"></i>
-                                <input type="text" name="password_c" placeholder="Password Confirmation" onChange={ this.handlePasswordC.bind(this) } />
+                                <input type="password" name="password_c" placeholder="Password Confirmation" onChange={ this.handlePasswordC.bind(this) } />
                             </div>
                         </div>
                     </div>
