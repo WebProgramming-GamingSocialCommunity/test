@@ -11,10 +11,10 @@ class Welcome extends React.Component {
     }
 
     handleClick() {
-	this.props.login(this.state);
+        this.props.login(this.state);
     }     
 
-handleEmail(event) {
+    handleEmail(event) {
         this.setState({email:event.target.value});
     }
 
@@ -25,44 +25,44 @@ handleEmail(event) {
     render() {
         return (
 
-<div className="ui one column stackable center aligned vertically padded grid container">
-    <div className="column twelve wide">
-        <h1 className="ui center aligned teal icon header">
-            <i className="users icon"></i>
-            Login
-        </h1>
-        <div className="ui large form">
-            <div className="ui stacked segment">
-                <div className="field">
-                    <div className="ui left icon input">
-                        <i className="user icon"></i>
-                        <input type="text" name="email" placeholder="E-mail address" onChange={this.handleEmail.bind(this)}/>
+            <div className="ui one column stackable center aligned vertically padded grid container">
+                <div className="column twelve wide">
+                    <h1 className="ui center aligned teal icon header">
+                        <i className="users icon"></i>
+                        Login
+                    </h1>
+                    <div className="ui large form">
+                        <div className="ui stacked segment">
+                            <div className="field">
+                                <div className="ui left icon input">
+                                    <i className="user icon"></i>
+                                    <input type="text" name="email" placeholder="E-mail address" onChange={this.handleEmail.bind(this)}/>
+                                </div>
+                            </div>
+                            <div className="field">
+                                <div className="ui left icon input">
+                                    <i className="lock icon"></i>
+                                    <input type="password" name="password" placeholder="Password" onChange={this.handlePassword.bind(this)}/>
+                                </div>
+                            </div>
+                            <div className="ui fluid large teal submit button"
+                                onClick={this.handleClick.bind(this)}
+                                >Login</div>
+                        </div>
+
+                        <div className="ui error message"></div>
+
+                    </div>
+
+                    <div className="ui message">
+                        New to us?
+                        <Link
+                            to="/signup"
+                            activeClassName="active">Sign Up
+                        </Link>
                     </div>
                 </div>
-                <div className="field">
-                    <div className="ui left icon input">
-                        <i className="lock icon"></i>
-                        <input type="password" name="password" placeholder="Password" onChange={this.handlePassword.bind(this)}/>
-                    </div>
-                </div>
-                <div className="ui fluid large teal submit button"
-                    onClick={this.handleClick.bind(this)}
-                    >Login</div>
             </div>
-
-            <div className="ui error message"></div>
-
-        </div>
-
-        <div className="ui message">
-            New to us?
-            <Link
-                to="/signup"
-                activeClassName="active">Sign Up
-            </Link>
-        </div>
-    </div>
-</div>
         );
     }
 }

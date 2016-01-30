@@ -38,7 +38,6 @@ let temp ={
 	user_id:id
 }
 }  
-console.log(JSON.stringify(temp));
 return(dispatch) => {
     fetch('http://localhost:8080/v1/posts', {
       method: 'post',
@@ -50,8 +49,6 @@ return(dispatch) => {
     })
     .then(res => res.json() )
     .then(data => {
-console.log("there");
-console.log(data);
 let temp={content:data.content,title:data.title};
       dispatch(addPost(temp));
     });

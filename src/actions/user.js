@@ -31,7 +31,6 @@ export function getin() {
 }
 */
 export function receiveUsers(info) {
-console.log(JSON.stringify(info));
     return (dispatch) => {
         fetch('http://localhost:8080/v1/users/sign_in', {
             method: 'POST',
@@ -44,7 +43,6 @@ console.log(JSON.stringify(info));
         .then(res => res.json()
 	)
         .then(data => {
-            console.log(data);
             dispatch(getUser(data));
             dispatch(login());
 		history.replaceState(null,'/posts');
